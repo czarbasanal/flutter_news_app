@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'app_styles.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class HomeScreenRef extends StatelessWidget {
+  const HomeScreenRef({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

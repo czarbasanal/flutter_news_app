@@ -15,6 +15,10 @@ const Color lighterBlue = Color(0xffc1d4f9);
 const Color darkBlue = Color(0xff19202d);
 
 const double borderRadius = 16.0;
+const double small = 14.0;
+const double medium = 16.0;
+const double large = 18.0;
+const double xlarge = 20.0;
 
 final border = OutlineInputBorder(
   borderRadius: BorderRadius.circular(borderRadius),
