@@ -31,7 +31,7 @@ class FeaturedListView extends StatelessWidget {
               color: white,
               boxShadow: [
                 BoxShadow(
-                  color: darkBlue.withOpacity(0.08),
+                  color: darkBlue.withOpacity(0.05),
                   offset: const Offset(0.0, 10.0),
                   blurRadius: 12.0,
                   spreadRadius: 0.0,
