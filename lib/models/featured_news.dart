@@ -42,7 +42,7 @@ var featuredNews = [
       featuredImg: 'assets/tourism.png',
       headline: '7 Hidden Gems in the Philippines to Visit in 2023',
       description:
-          'Lorem ipsum dolor sit amet, quo solet eirmod in, virtute partiendo aliquando id nec. At eum amet omittam repudiare. Tollit partem eam ei, ad volutpat quaerendum per, ea qui malorum pertinax. An vis fuisset quaestio tincidunt, in nibh luptatum iracundia pri. Eam diam regione instructior et, te pro prompta moderatius, et odio iudico petentium duo. Sea ut nibh imperdiet, postea corrumpit voluptatum eum te.',
+          'Lorem ipsum dolor sit amet, quo solet eirmod in, virtute partiendo aliquando id nec. At eum amet omittam repudiare. Tollit partem eam ei, ad volutpat quaerendum per, ea qui malorum pertinax. An vis fuisset quaestio tincidunt, in nibh luptatum iracundia pri. Eam diam regione instructior et, te pro prompta moderatius, et odio iudico petentium duo. \n\nSea ut nibh imperdiet, postea corrumpit voluptatum eum te. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
       readDuration: '5 min read',
       userProfileUrl: 'assets/user-profile1.png',
       userName: 'Kuya Josh Ojenroc',
@@ -51,7 +51,7 @@ var featuredNews = [
       featuredImg: 'assets/music.png',
       headline: 'The Most Anticipated Concerts of 2023',
       description:
-          'Lorem ipsum dolor sit amet, quo solet eirmod in, virtute partiendo aliquando id nec. At eum amet omittam repudiare. Tollit partem eam ei, ad volutpat quaerendum per, ea qui malorum pertinax. An vis fuisset quaestio tincidunt, in nibh luptatum iracundia pri. Eam diam regione instructior et, te pro prompta moderatius, et odio iudico petentium duo. Sea ut nibh imperdiet, postea corrumpit voluptatum eum te.',
+          'Lorem ipsum dolor sit amet, quo solet eirmod in, virtute partiendo aliquando id nec. At eum amet omittam repudiare. Tollit partem eam ei, ad volutpat quaerendum per, ea qui malorum pertinax. An vis fuisset quaestio tincidunt, in nibh luptatum iracundia pri. Eam diam regione instructior et, te pro prompta moderatius, et odio iudico petentium duo. \n\nSea ut nibh imperdiet, postea corrumpit voluptatum eum te. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
       readDuration: '3 min read',
       userProfileUrl: 'assets/user-profile2.png',
       userName: 'Boss Mexl Mapags',
@@ -60,7 +60,7 @@ var featuredNews = [
       featuredImg: 'assets/technology.png',
       headline: 'The Rise of Artificial Intelligence: Now and Beyond',
       description:
-          'Lorem ipsum dolor sit amet, quo solet eirmod in, virtute partiendo aliquando id nec. At eum amet omittam repudiare. Tollit partem eam ei, ad volutpat quaerendum per, ea qui malorum pertinax. An vis fuisset quaestio tincidunt, in nibh luptatum iracundia pri. Eam diam regione instructior et, te pro prompta moderatius, et odio iudico petentium duo. Sea ut nibh imperdiet, postea corrumpit voluptatum eum te.',
+          'Lorem ipsum dolor sit amet, quo solet eirmod in, virtute partiendo aliquando id nec. At eum amet omittam repudiare. Tollit partem eam ei, ad volutpat quaerendum per, ea qui malorum pertinax. An vis fuisset quaestio tincidunt, in nibh luptatum iracundia pri. Eam diam regione instructior et, te pro prompta moderatius, et odio iudico petentium duo. \n\nSea ut nibh imperdiet, postea corrumpit voluptatum eum te. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
       readDuration: '8 min read',
       userProfileUrl: 'assets/user-profile3.png',
       userName: 'Bibiluvs',
@@ -69,7 +69,7 @@ var featuredNews = [
       featuredImg: 'assets/fashion.jpg',
       headline: 'The Best Places to Shop for Clothes Online',
       description:
-          'Lorem ipsum dolor sit amet, quo solet eirmod in, virtute partiendo aliquando id nec. At eum amet omittam repudiare. Tollit partem eam ei, ad volutpat quaerendum per, ea qui malorum pertinax. An vis fuisset quaestio tincidunt, in nibh luptatum iracundia pri. Eam diam regione instructior et, te pro prompta moderatius, et odio iudico petentium duo. Sea ut nibh imperdiet, postea corrumpit voluptatum eum te.',
+          'Lorem ipsum dolor sit amet, quo solet eirmod in, virtute partiendo aliquando id nec. At eum amet omittam repudiare. Tollit partem eam ei, ad volutpat quaerendum per, ea qui malorum pertinax. An vis fuisset quaestio tincidunt, in nibh luptatum iracundia pri. Eam diam regione instructior et, te pro prompta moderatius, et odio iudico petentium duo. \n\nSea ut nibh imperdiet, postea corrumpit voluptatum eum te. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
       readDuration: '4 min read',
       userProfileUrl: 'assets/user-profile4.png',
       userName: 'Boss Matskie',
