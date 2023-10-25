@@ -56,9 +56,9 @@ class ShortsListView extends StatelessWidget {
                     borderRadius: BorderRadius.circular(borderRadius),
                     boxShadow: [
                       BoxShadow(
-                        color: darkBlue.withOpacity(0.051),
+                        color: darkBlue.withOpacity(0.08),
                         offset: const Offset(0.0, 3.0),
-                        blurRadius: 24.0,
+                        blurRadius: 12.0,
                         spreadRadius: 0.0,
                       )
                     ],

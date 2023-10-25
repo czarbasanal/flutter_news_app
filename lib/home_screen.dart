@@ -3,8 +3,6 @@ import 'package:flutter_news_app/categories_list.dart';
 import 'package:flutter_news_app/featured_list.dart';
 import 'package:flutter_news_app/search_bar.dart';
 import 'package:flutter_news_app/short_for_you_list.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-
 import 'app_styles.dart';
 
 class HomeScreen extends StatelessWidget {
