@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_news_app/app_styles.dart';
 import 'package:flutter_news_app/details_carousel_slider.dart';
 import 'package:flutter_news_app/models/user.dart';
+import 'package:flutter_news_app/navigation_bar.dart';
 import 'package:flutter_svg/svg.dart';
 
 class DetailScreen extends StatefulWidget {
@@ -15,6 +16,14 @@ class DetailScreen extends StatefulWidget {
 
 class DetailScreenState extends State<DetailScreen> {
   bool isExpanded = false;
+
+  int selectedIndex = 0;
+
+  void onItemTapped(int index) {
+    setState(() {
+      selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,20 +52,21 @@ class DetailScreenState extends State<DetailScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
-                            height: 50,
-                            width: 50,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(
-                                borderRadius,
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: Container(
+                              height: 50,
+                              width: 50,
+                              decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.circular(borderRadius),
+                                border: Border.all(color: white),
                               ),
-                              border: Border.all(
-                                color: white,
-                              ),
-                            ),
-                            padding: const EdgeInsets.all(14.0),
-                            child: SvgPicture.asset(
-                              'assets/arrow_back_icon.svg',
+                              padding: const EdgeInsets.all(14.0),
+                              child: SvgPicture.asset(
+                                  'assets/arrow_back_icon.svg'),
                             ),
                           ),
                           Container(
@@ -209,6 +219,10 @@ class DetailScreenState extends State<DetailScreen> {
               ),
             ],
           ),
+        ),
+        bottomNavigationBar: AppNavigationBar(
+          selectedIndex: selectedIndex,
+          onItemTapped: onItemTapped,
         ),
       ),
     );

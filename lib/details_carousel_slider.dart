@@ -12,7 +12,7 @@ class DetailsCarouselSlider extends StatefulWidget {
 }
 
 class DetailsCarouselSliderState extends State<DetailsCarouselSlider> {
-  int current = 1;
+  int current = 0;
   final CarouselController sliderController = CarouselController();
 
   @override
