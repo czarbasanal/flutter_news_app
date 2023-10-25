@@ -18,11 +18,11 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  int _selectedIndex = 0;
+  int selectedIndex = 0;
 
-  void _onItemTapped(int index) {
+  void onItemTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+      selectedIndex = index;
     });
   }
 
@@ -32,7 +32,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: lighterWhite,
-        body: const DetailScreen(),
+        body: const HomeScreen(),
         bottomNavigationBar: BottomNavigationBar(
           elevation: 0,
           type: BottomNavigationBarType.fixed,
@@ -40,7 +40,7 @@ class _MyAppState extends State<MyApp> {
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Center(
-                child: _selectedIndex == 0
+                child: selectedIndex == 0
                     ? SvgPicture.asset('assets/home_selected_icon.svg')
                     : SvgPicture.asset('assets/home_unselected_icon.svg'),
               ),
@@ -48,7 +48,7 @@ class _MyAppState extends State<MyApp> {
             ),
             BottomNavigationBarItem(
               icon: Center(
-                child: _selectedIndex == 1
+                child: selectedIndex == 1
                     ? SvgPicture.asset('assets/bookmark_selected_icon.svg')
                     : SvgPicture.asset('assets/bookmark_unselected_icon.svg'),
               ),
@@ -56,7 +56,7 @@ class _MyAppState extends State<MyApp> {
             ),
             BottomNavigationBarItem(
               icon: Center(
-                child: _selectedIndex == 2
+                child: selectedIndex == 2
                     ? SvgPicture.asset('assets/notification_selected_icon.svg')
                     : SvgPicture.asset(
                         'assets/notification_unselected_icon.svg'),
@@ -65,15 +65,15 @@ class _MyAppState extends State<MyApp> {
             ),
             BottomNavigationBarItem(
               icon: Center(
-                child: _selectedIndex == 3
+                child: selectedIndex == 3
                     ? SvgPicture.asset('assets/profile_selected_icon.svg')
                     : SvgPicture.asset('assets/profile_unselected_icon.svg'),
               ),
               label: '',
             ),
           ],
-          currentIndex: _selectedIndex,
-          onTap: _onItemTapped,
+          currentIndex: selectedIndex,
+          onTap: onItemTapped,
         ),
       ),
     );

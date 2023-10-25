@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_news_app/models/featured_news.dart';
+import 'package:flutter_news_app/models/user.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'app_styles.dart';
 
@@ -14,10 +14,11 @@ class FeaturedListView extends StatelessWidget {
         physics: const BouncingScrollPhysics(
             decelerationRate: ScrollDecelerationRate.normal),
         shrinkWrap: true,
-        itemCount: featuredNews.length,
+        itemCount: user.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
-          FeaturedNews featuredItem = featuredNews[index];
+          User featuredUser = user[index];
+          UserPost featuredPost = featuredUser.posts[0];
 
           return Container(
             padding: const EdgeInsets.all(12),
@@ -46,7 +47,7 @@ class FeaturedListView extends StatelessWidget {
                     borderRadius: BorderRadius.circular(borderRadius),
                     image: DecorationImage(
                         fit: BoxFit.cover,
-                        image: AssetImage(featuredItem.featuredImg)),
+                        image: AssetImage(featuredPost.photo)),
                   ),
                 ),
                 const SizedBox(
@@ -54,7 +55,7 @@ class FeaturedListView extends StatelessWidget {
                 ),
                 Flexible(
                   child: Text(
-                    featuredItem.headline,
+                    featuredPost.caption,
                     style: poppinsBold.copyWith(fontSize: large, height: 1.20),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
@@ -71,8 +72,7 @@ class FeaturedListView extends StatelessWidget {
                         CircleAvatar(
                             radius: 19,
                             backgroundColor: lightBlue,
-                            backgroundImage:
-                                AssetImage(featuredItem.userProfileUrl)),
+                            backgroundImage: AssetImage(featuredUser.profile)),
                         const SizedBox(
                           width: 12,
                         ),
@@ -81,13 +81,13 @@ class FeaturedListView extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              featuredItem.userName,
+                              featuredUser.name,
                               style: poppinsSemibold.copyWith(
                                 fontSize: small,
                               ),
                             ),
                             Text(
-                              featuredItem.datePosted,
+                              featuredPost.datePosted,
                               style: poppinsRegular.copyWith(
                                 color: grey,
                                 fontSize: xsmall,

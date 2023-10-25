@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news_app/app_styles.dart';
 import 'package:flutter_news_app/details_carousel_slider.dart';
+import 'package:flutter_news_app/models/user.dart';
 import 'package:flutter_svg/svg.dart';
 
 class DetailScreen extends StatefulWidget {
-  const DetailScreen({Key? key}) : super(key: key);
+  final User selectedNews;
+
+  const DetailScreen({super.key, required this.selectedNews});
 
   @override
-  _DetailScreenState createState() => _DetailScreenState();
+  DetailScreenState createState() => DetailScreenState();
 }
 
-class _DetailScreenState extends State<DetailScreen> {
+class DetailScreenState extends State<DetailScreen> {
   bool isExpanded = false;
 
   @override
