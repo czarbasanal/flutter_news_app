@@ -14,6 +14,8 @@ const Color lighterBlue = Color(0xffc1d4f9);
 
 const Color darkBlue = Color(0xff19202d);
 
+const Color borderColor = Color(0xffEEEEEE);
+
 const double borderRadius = 16.0;
 const double xsmall = 12.0;
 const double small = 14.0;

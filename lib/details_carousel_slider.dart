@@ -28,7 +28,7 @@ class DetailsCarouselSliderState extends State<DetailsCarouselSlider> {
         CarouselSlider(
           carouselController: sliderController,
           options: CarouselOptions(
-              height: 1130.0,
+              height: 1000.0,
               viewportFraction: 1.0,
               enlargeCenterPage: false,
               onPageChanged: (index, reason) {
@@ -56,6 +56,7 @@ class DetailsCarouselSliderState extends State<DetailsCarouselSlider> {
         ),
         Positioned(
           top: 320.0,
+          left: (maxWidth / 2) - 36,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: imageList
