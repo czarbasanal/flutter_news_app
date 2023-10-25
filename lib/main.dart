@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'app_styles.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'home_screen.dart';
-import 'details_screen.dart';
 
 void main() {
   runApp(

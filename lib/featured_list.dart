@@ -1,7 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_news_app/details_screen.dart';
 import 'package:flutter_news_app/models/user.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'app_styles.dart';
+
+class SlidePageRoute<T> extends MaterialPageRoute<T> {
+  SlidePageRoute({required WidgetBuilder builder, RouteSettings? settings})
+      : super(builder: builder, settings: settings);
+
+  @override
+  Widget buildTransitions(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation, Widget child) {
+    Animation<Offset> slideAnimation = Tween<Offset>(
+      begin: const Offset(1.0, 0.0),
+      end: Offset.zero,
+    ).animate(
+      CurvedAnimation(
+        parent: animation,
+        curve: Curves.easeOutCubic,
+      ),
+    );
+
+    return SlideTransition(
+      position: slideAnimation,
+      child: child,
+    );
+  }
+}
 
 class FeaturedListView extends StatelessWidget {
   const FeaturedListView({Key? key}) : super(key: key);
@@ -19,6 +44,7 @@ class FeaturedListView extends StatelessWidget {
         itemBuilder: (context, index) {
           User featuredUser = user[index];
           UserPost featuredPost = featuredUser.posts[0];
+          String featuredPostImg = featuredPost.image[0];
 
           return Container(
             padding: const EdgeInsets.all(12),
@@ -41,24 +67,37 @@ class FeaturedListView extends StatelessWidget {
             ),
             child: Column(
               children: [
-                Container(
-                  height: 164,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(borderRadius),
-                    image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: AssetImage(featuredPost.photo)),
-                  ),
-                ),
-                const SizedBox(
-                  height: 18,
-                ),
-                Flexible(
-                  child: Text(
-                    featuredPost.caption,
-                    style: poppinsBold.copyWith(fontSize: large, height: 1.20),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(SlidePageRoute(
+                      builder: (context) =>
+                          DetailScreen(selectedNews: featuredUser),
+                    ));
+                  },
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 164,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(borderRadius),
+                          image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: AssetImage(featuredPostImg)),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 18,
+                      ),
+                      Flexible(
+                        child: Text(
+                          featuredPost.caption,
+                          style: poppinsBold.copyWith(
+                              fontSize: large, height: 1.20),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 const SizedBox(

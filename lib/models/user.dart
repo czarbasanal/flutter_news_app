@@ -1,5 +1,3 @@
-import 'package:flutter_news_app/models/news.dart';
-
 class User {
   final String profile;
   final String name;
@@ -21,7 +19,7 @@ class User {
 }
 
 class UserPost {
-  final String photo;
+  final List<String> image;
   final String caption;
   final String details;
   final String datePosted;
@@ -30,7 +28,7 @@ class UserPost {
   final String category;
 
   const UserPost({
-    required this.photo,
+    required this.image,
     required this.caption,
     required this.details,
     required this.datePosted,
@@ -40,10 +38,21 @@ class UserPost {
   });
 }
 
+List<List<String>> postImages = [
+  ['assets/tourism.png', 'assets/tourism-1.png', 'assets/tourism-2.png'],
+  ['assets/music.png', 'assets/music-1.png', 'assets/music-2.png'],
+  [
+    'assets/technology.png',
+    'assets/technology-1.png',
+    'assets/technology-2.png'
+  ],
+  ['assets/fashion.jpg', 'assets/fashion-1.png', 'assets/fashion-2.png'],
+];
+
 List<List<UserPost>> userPosts = [
   [
     UserPost(
-        photo: images[0][0],
+        image: postImages[0],
         caption: '7 Hidden Gems in the Philippines to Visit in 2023',
         details:
             'Lorem ipsum dolor sit amet, quo solet eirmod in, virtute partiendo aliquando id nec. At eum amet omittam repudiare. Tollit partem eam ei, ad volutpat quaerendum per, ea qui malorum pertinax. An vis fuisset quaestio tincidunt, in nibh luptatum iracundia pri. Eam diam regione instructior et, te pro prompta moderatius, et odio iudico petentium duo. \n\nSea ut nibh imperdiet, postea corrumpit voluptatum eum te. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
@@ -54,7 +63,7 @@ List<List<UserPost>> userPosts = [
   ],
   [
     UserPost(
-        photo: images[1][0],
+        image: postImages[1],
         caption: 'The Most Anticipated Concerts of 2023',
         details:
             'Lorem ipsum dolor sit amet, quo solet eirmod in, virtute partiendo aliquando id nec. At eum amet omittam repudiare. Tollit partem eam ei, ad volutpat quaerendum per, ea qui malorum pertinax. An vis fuisset quaestio tincidunt, in nibh luptatum iracundia pri. Eam diam regione instructior et, te pro prompta moderatius, et odio iudico petentium duo. \n\nSea ut nibh imperdiet, postea corrumpit voluptatum eum te. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
@@ -65,7 +74,7 @@ List<List<UserPost>> userPosts = [
   ],
   [
     UserPost(
-        photo: images[2][0],
+        image: postImages[2],
         caption: 'The Rise of Artificial Intelligence: Now and Beyond',
         details:
             'Lorem ipsum dolor sit amet, quo solet eirmod in, virtute partiendo aliquando id nec. At eum amet omittam repudiare. Tollit partem eam ei, ad volutpat quaerendum per, ea qui malorum pertinax. An vis fuisset quaestio tincidunt, in nibh luptatum iracundia pri. Eam diam regione instructior et, te pro prompta moderatius, et odio iudico petentium duo. \n\nSea ut nibh imperdiet, postea corrumpit voluptatum eum te. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
@@ -76,7 +85,7 @@ List<List<UserPost>> userPosts = [
   ],
   [
     UserPost(
-        photo: images[3][0],
+        image: postImages[3],
         caption: 'The Best Places to Shop for Clothes Online',
         details:
             'Lorem ipsum dolor sit amet, quo solet eirmod in, virtute partiendo aliquando id nec. At eum amet omittam repudiare. Tollit partem eam ei, ad volutpat quaerendum per, ea qui malorum pertinax. An vis fuisset quaestio tincidunt, in nibh luptatum iracundia pri. Eam diam regione instructior et, te pro prompta moderatius, et odio iudico petentium duo. \n\nSea ut nibh imperdiet, postea corrumpit voluptatum eum te. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',

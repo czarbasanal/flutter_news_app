@@ -2,14 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_svg/svg.dart';
 
-final List<String> imageList = [
-  'assets/tourism.png',
-  'assets/technology.png',
-  'assets/music.png'
-];
-
 class DetailsCarouselSlider extends StatefulWidget {
-  const DetailsCarouselSlider({Key? key}) : super(key: key);
+  final List<String> featuredPostImages;
+
+  const DetailsCarouselSlider({super.key, required this.featuredPostImages});
 
   @override
   State<DetailsCarouselSlider> createState() => DetailsCarouselSliderState();
@@ -40,7 +36,7 @@ class DetailsCarouselSliderState extends State<DetailsCarouselSlider> {
               autoPlay: true,
               scrollPhysics: const BouncingScrollPhysics(
                   decelerationRate: ScrollDecelerationRate.normal)),
-          items: imageList
+          items: widget.featuredPostImages
               .map(
                 (item) => Align(
                   alignment: Alignment.topCenter,
@@ -59,7 +55,7 @@ class DetailsCarouselSliderState extends State<DetailsCarouselSlider> {
           left: (maxWidth / 2) - 36,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: imageList
+            children: widget.featuredPostImages
                 .asMap()
                 .entries
                 .map(

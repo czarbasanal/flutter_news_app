@@ -17,17 +17,6 @@ List<String> categories = [
   '#Trending'
 ];
 
-List<List<String>> images = [
-  ['assets/tourism.png', 'assets/tourism-1.png', 'assets/tourism-2.png'],
-  ['assets/music.png', 'assets/music-1.png', 'assets/music-2.png'],
-  [
-    'assets/technology.png',
-    'assets/technology-1.png',
-    'assets/technology-2.png'
-  ],
-  ['assets/fashion.jpg', 'assets/fashion-1.png', 'assets/fashion-2.png'],
-];
-
 var shortForYou = [
   const ShortForYou(
       thumbnailUrl: 'assets/thumbnail-1.jpg',

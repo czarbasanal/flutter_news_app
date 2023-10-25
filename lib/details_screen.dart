@@ -31,7 +31,8 @@ class DetailScreenState extends State<DetailScreen> {
             children: [
               Stack(
                 children: [
-                  const DetailsCarouselSlider(),
+                  DetailsCarouselSlider(
+                      featuredPostImages: widget.selectedNews.posts[0].image),
                   Align(
                     alignment: Alignment.topCenter,
                     child: Padding(
@@ -99,7 +100,7 @@ class DetailScreenState extends State<DetailScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Unravel mysteries of the Maldives',
+                              widget.selectedNews.posts[0].caption,
                               style: poppinsBold.copyWith(
                                 color: darkBlue,
                                 fontSize: 28.0,
@@ -125,11 +126,11 @@ class DetailScreenState extends State<DetailScreen> {
                               ),
                               child: Row(
                                 children: [
-                                  const CircleAvatar(
+                                  CircleAvatar(
                                     radius: 20,
                                     backgroundColor: blue,
                                     backgroundImage:
-                                        AssetImage('assets/user-profile1.png'),
+                                        AssetImage(widget.selectedNews.profile),
                                   ),
                                   const SizedBox(
                                     width: 16.0,
@@ -140,14 +141,14 @@ class DetailScreenState extends State<DetailScreen> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        'Kuya Josh Ojenroc',
+                                        widget.selectedNews.name,
                                         style: poppinsRegular.copyWith(
                                           color: grey,
                                           fontSize: small,
                                         ),
                                       ),
                                       Text(
-                                        'May 17, 2023' '  •  ' '8 min read',
+                                        '${widget.selectedNews.posts[0].datePosted}  •  ${widget.selectedNews.posts[0].readDuration}',
                                         style: poppinsRegular.copyWith(
                                           color: grey,
                                           fontSize: xsmall,
@@ -159,7 +160,7 @@ class DetailScreenState extends State<DetailScreen> {
                               ),
                             ),
                             Text(
-                              'Lorem ipsum dolor sit amet, quo solet eirmod in, virtute partiendo aliquando id nec. At eum amet omittam repudiare. Tollit partem eam ei, ad volutpat quaerendum per, ea qui malorum pertinax. An vis fuisset quaestio tincidunt, in nibh luptatum iracundia pri. Eam diam regione instructior et, te pro prompta moderatius, et odio iudico petentium duo. \n\nSea ut nibh imperdiet, postea corrumpit voluptatum eum te. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+                              widget.selectedNews.posts[0].details,
                               style: poppinsMedium.copyWith(
                                 fontSize: isExpanded ? null : small,
                                 color: darkBlue,
