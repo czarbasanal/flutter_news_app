@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news_app/navigation_bar.dart';
+import 'package:flutter_news_app/user_profile_screen.dart';
 import 'app_styles.dart';
 import 'home_screen.dart';
 
@@ -31,7 +32,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: lighterWhite,
-        body: const HomeScreen(),
+        body: const UserProfileScreen(),
         bottomNavigationBar: AppNavigationBar(
           selectedIndex: selectedIndex,
           onItemTapped: onItemTapped,
