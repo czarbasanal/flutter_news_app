@@ -13,7 +13,7 @@ List<String> categories = [
   '#Technology',
   '#Sports',
   '#Fashion',
-  '#Tourism',
+  '#Travel',
   '#Trending'
 ];
 

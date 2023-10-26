@@ -29,7 +29,7 @@ class UserProfileScreenState extends State<UserProfileScreen> {
         body: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(
             horizontal: 30.0,
-            vertical: 30.0,
+            vertical: 14.0,
           ),
           child: SafeArea(
             child: Column(children: [
@@ -109,6 +109,7 @@ class UserProfileScreenState extends State<UserProfileScreen> {
                 style: poppinsMedium.copyWith(
                   color: grey,
                   fontSize: small,
+                  height: 1.40,
                 ),
               ),
               const SizedBox(
@@ -117,7 +118,7 @@ class UserProfileScreenState extends State<UserProfileScreen> {
               Container(
                 padding: const EdgeInsets.symmetric(
                   horizontal: small,
-                  vertical: medium,
+                  vertical: small,
                 ),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(
@@ -218,26 +219,28 @@ class UserProfileScreenState extends State<UserProfileScreen> {
                     'Elly\'s Post',
                     style: poppinsBold.copyWith(
                       color: darkBlue,
-                      fontSize: medium,
+                      fontSize: large,
                     ),
                   ),
                   Text(
                     'View All',
                     style: poppinsMedium.copyWith(
                       color: blue,
-                      fontSize: small,
+                      fontSize: xsmall,
                     ),
                   )
                 ],
               ),
               const SizedBox(
-                height: small,
+                height: xsmall,
               ),
               SizedBox(
+                height: 238,
                 child: ListView.builder(
                   shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: 2,
+                  physics: const BouncingScrollPhysics(
+                      decelerationRate: ScrollDecelerationRate.normal),
+                  itemCount: 3,
                   itemBuilder: (context, index) {
                     return Container(
                       height: 105,
@@ -281,12 +284,12 @@ class UserProfileScreenState extends State<UserProfileScreen> {
                                 Text(
                                   'News: Politics',
                                   style: poppinsRegular.copyWith(
-                                    color: darkBlue,
-                                    fontSize: small,
+                                    color: grey,
+                                    fontSize: xsmall,
                                   ),
                                 ),
                                 const SizedBox(
-                                  height: 4.0,
+                                  height: 12.0,
                                 ),
                                 Text(
                                   'Iran\'s raging protests Fifth Iranian paramilitary me...',
@@ -299,7 +302,7 @@ class UserProfileScreenState extends State<UserProfileScreen> {
                                   ),
                                 ),
                                 const SizedBox(
-                                  height: 4.0,
+                                  height: 12.0,
                                 ),
                                 Row(
                                   mainAxisAlignment:
@@ -311,13 +314,13 @@ class UserProfileScreenState extends State<UserProfileScreen> {
                                           'assets/calendar_icon.svg',
                                         ),
                                         const SizedBox(
-                                          width: xsmall,
+                                          width: 8.0,
                                         ),
                                         Text(
                                           '16th May',
                                           style: poppinsRegular.copyWith(
                                             color: grey,
-                                            fontSize: small,
+                                            fontSize: xsmall,
                                           ),
                                         ),
                                       ],
@@ -328,13 +331,13 @@ class UserProfileScreenState extends State<UserProfileScreen> {
                                           'assets/time_icon.svg',
                                         ),
                                         const SizedBox(
-                                          width: xsmall,
+                                          width: 8.0,
                                         ),
                                         Text(
                                           '09 : 32 pm',
                                           style: poppinsRegular.copyWith(
                                             color: grey,
-                                            fontSize: small,
+                                            fontSize: xsmall,
                                           ),
                                         ),
                                       ],
@@ -350,9 +353,6 @@ class UserProfileScreenState extends State<UserProfileScreen> {
                   },
                 ),
               ),
-              const SizedBox(
-                height: small,
-              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -361,13 +361,13 @@ class UserProfileScreenState extends State<UserProfileScreen> {
                     'Popular From Elly',
                     style: poppinsBold.copyWith(
                       color: darkBlue,
-                      fontSize: medium,
+                      fontSize: large,
                     ),
                   ),
                 ],
               ),
               const SizedBox(
-                height: small,
+                height: xsmall,
               ),
               SizedBox(
                 height: 143,
@@ -375,7 +375,7 @@ class UserProfileScreenState extends State<UserProfileScreen> {
                   scrollDirection: Axis.horizontal,
                   physics: const BouncingScrollPhysics(
                       decelerationRate: ScrollDecelerationRate.normal),
-                  itemCount: 10,
+                  itemCount: 5,
                   itemBuilder: (context, index) {
                     return Container(
                       height: 143,

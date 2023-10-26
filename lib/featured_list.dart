@@ -115,7 +115,7 @@ class FeaturedListView extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              featuredUser.name,
+                              '${featuredUser.fname} ${featuredUser.lname}',
                               style: poppinsSemibold.copyWith(
                                 fontSize: small,
                               ),

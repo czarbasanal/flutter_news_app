@@ -151,7 +151,7 @@ class DetailScreenState extends State<DetailScreen> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        widget.selectedNews.name,
+                                        '${widget.selectedNews.fname} ${widget.selectedNews.lname}',
                                         style: poppinsRegular.copyWith(
                                           color: grey,
                                           fontSize: small,
