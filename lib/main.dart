@@ -32,7 +32,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: lighterWhite,
-        body: const UserProfileScreen(),
+        body: const HomeScreen(),
         bottomNavigationBar: AppNavigationBar(
           selectedIndex: selectedIndex,
           onItemTapped: onItemTapped,

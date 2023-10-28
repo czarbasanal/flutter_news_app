@@ -1,32 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news_app/details_screen.dart';
 import 'package:flutter_news_app/models/user.dart';
+import 'package:flutter_news_app/slide_transition.dart';
+import 'package:flutter_news_app/user_profile_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'app_styles.dart';
-
-class SlidePageRoute<T> extends MaterialPageRoute<T> {
-  SlidePageRoute({required WidgetBuilder builder, RouteSettings? settings})
-      : super(builder: builder, settings: settings);
-
-  @override
-  Widget buildTransitions(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) {
-    Animation<Offset> slideAnimation = Tween<Offset>(
-      begin: const Offset(1.0, 0.0),
-      end: Offset.zero,
-    ).animate(
-      CurvedAnimation(
-        parent: animation,
-        curve: Curves.easeOutCubic,
-      ),
-    );
-
-    return SlideTransition(
-      position: slideAnimation,
-      child: child,
-    );
-  }
-}
 
 class FeaturedListView extends StatelessWidget {
   const FeaturedListView({Key? key}) : super(key: key);
@@ -43,7 +21,7 @@ class FeaturedListView extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           User featuredUser = user[index];
-          UserPost featuredPost = featuredUser.posts[0];
+          UserPost featuredPost = featuredUser.postsRef[0];
           String featuredPostImg = featuredPost.image[0];
 
           return Container(
@@ -79,8 +57,10 @@ class FeaturedListView extends StatelessWidget {
                   ),
                   onTap: () {
                     Navigator.of(context).push(SlidePageRoute(
-                      builder: (context) =>
-                          DetailScreen(selectedNews: featuredUser),
+                      builder: (context) => DetailScreen(
+                        selectedNews: featuredUser,
+                        postRefIndex: 0,
+                      ),
                     ));
                   },
                 ),
@@ -103,10 +83,19 @@ class FeaturedListView extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        CircleAvatar(
-                            radius: 19,
-                            backgroundColor: lightBlue,
-                            backgroundImage: AssetImage(featuredUser.profile)),
+                        GestureDetector(
+                          child: CircleAvatar(
+                              radius: 19,
+                              backgroundColor: lightBlue,
+                              backgroundImage:
+                                  AssetImage(featuredUser.profile)),
+                          onTap: () {
+                            Navigator.of(context).push(SlidePageRoute(
+                              builder: (context) =>
+                                  UserProfileScreen(selectedUser: featuredUser),
+                            ));
+                          },
+                        ),
                         const SizedBox(
                           width: 12,
                         ),

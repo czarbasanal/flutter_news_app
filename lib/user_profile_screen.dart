@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news_app/app_styles.dart';
 import 'package:flutter_news_app/models/user.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_news_app/navigation_bar.dart';
+import 'package:flutter_news_app/popular_posts_list.dart';
+import 'package:flutter_news_app/user_posts_list.dart';
 
 class UserProfileScreen extends StatefulWidget {
-  //  final User userProfile;
+  final User selectedUser;
 
-  const UserProfileScreen({super.key});
+  const UserProfileScreen({super.key, required this.selectedUser});
 
   @override
   UserProfileScreenState createState() => UserProfileScreenState();
@@ -29,7 +31,7 @@ class UserProfileScreenState extends State<UserProfileScreen> {
         body: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(
             horizontal: 30.0,
-            vertical: 14.0,
+            vertical: 30.0,
           ),
           child: SafeArea(
             child: Column(children: [
@@ -39,14 +41,13 @@ class UserProfileScreenState extends State<UserProfileScreen> {
                     height: 70,
                     width: 70,
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(
-                        borderRadius,
-                      ),
-                      child: Image.network(
-                        'https://www.sketchappsources.com/resources/source-image/profile-illustration-gunaldi-yunus.png',
-                        fit: BoxFit.cover,
-                      ),
-                    ),
+                        borderRadius: BorderRadius.circular(
+                          borderRadius,
+                        ),
+                        child: Image.asset(
+                          widget.selectedUser.profile,
+                          fit: BoxFit.cover,
+                        )),
                   ),
                   const SizedBox(
                     width: small,
@@ -60,17 +61,20 @@ class UserProfileScreenState extends State<UserProfileScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Elly Byers',
+                              '${widget.selectedUser.fname} '
+                              '${widget.selectedUser.lname}',
                               style: poppinsBold.copyWith(
                                 color: darkBlue,
-                                fontSize: medium,
+                                fontSize: small,
                               ),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
                             ),
                             Text(
-                              'Author & Writer',
+                              widget.selectedUser.work,
                               style: poppinsRegular.copyWith(
                                 color: darkBlue,
-                                fontSize: small,
+                                fontSize: xsmall,
                               ),
                             ),
                           ],
@@ -78,7 +82,7 @@ class UserProfileScreenState extends State<UserProfileScreen> {
                         Container(
                           constraints: const BoxConstraints(
                             maxHeight: 42,
-                            maxWidth: 109.0,
+                            maxWidth: 100.0,
                           ),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(
@@ -91,7 +95,7 @@ class UserProfileScreenState extends State<UserProfileScreen> {
                               'Following',
                               style: poppinsMedium.copyWith(
                                 color: white,
-                                fontSize: small,
+                                fontSize: xsmall,
                               ),
                             ),
                           ),
@@ -105,12 +109,13 @@ class UserProfileScreenState extends State<UserProfileScreen> {
                 height: medium,
               ),
               Text(
-                'Every piece of chocolate I ever ate is getting back at me.. desserts are very revengeful..',
+                widget.selectedUser.bio,
                 style: poppinsMedium.copyWith(
                   color: grey,
                   fontSize: small,
                   height: 1.40,
                 ),
+                textAlign: TextAlign.center,
               ),
               const SizedBox(
                 height: medium,
@@ -133,7 +138,7 @@ class UserProfileScreenState extends State<UserProfileScreen> {
                       child: Column(
                         children: [
                           Text(
-                            '54.21k',
+                            widget.selectedUser.followers,
                             style: poppinsBold.copyWith(
                               color: white,
                               fontSize: medium,
@@ -161,7 +166,7 @@ class UserProfileScreenState extends State<UserProfileScreen> {
                       child: Column(
                         children: [
                           Text(
-                            '2.11k',
+                            widget.selectedUser.posts,
                             style: poppinsBold.copyWith(
                               color: white,
                               fontSize: medium,
@@ -189,7 +194,7 @@ class UserProfileScreenState extends State<UserProfileScreen> {
                       child: Column(
                         children: [
                           Text(
-                            '36.40k',
+                            widget.selectedUser.following,
                             style: poppinsBold.copyWith(
                               color: white,
                               fontSize: medium,
@@ -209,14 +214,14 @@ class UserProfileScreenState extends State<UserProfileScreen> {
                 ),
               ),
               const SizedBox(
-                height: medium,
+                height: large,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    'Elly\'s Post',
+                    '${widget.selectedUser.fname}\'s Post',
                     style: poppinsBold.copyWith(
                       color: darkBlue,
                       fontSize: large,
@@ -232,133 +237,20 @@ class UserProfileScreenState extends State<UserProfileScreen> {
                 ],
               ),
               const SizedBox(
-                height: xsmall,
+                height: small,
               ),
-              SizedBox(
-                height: 238,
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  physics: const BouncingScrollPhysics(
-                      decelerationRate: ScrollDecelerationRate.normal),
-                  itemCount: 3,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      height: 105,
-                      margin: const EdgeInsets.only(
-                        bottom: small,
-                      ),
-                      child: Row(
-                        children: [
-                          Container(
-                            height: 105,
-                            width: 100,
-                            padding: const EdgeInsets.all(5),
-                            decoration: BoxDecoration(
-                              color: white,
-                              borderRadius: BorderRadius.circular(borderRadius),
-                              boxShadow: [
-                                BoxShadow(
-                                  blurRadius: 24,
-                                  spreadRadius: 0,
-                                  offset: const Offset(0, 3),
-                                  color: darkBlue.withOpacity(0.051),
-                                )
-                              ],
-                            ),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(borderRadius),
-                              child: Image.network(
-                                'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1365&q=80',
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            width: small,
-                          ),
-                          Expanded(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'News: Politics',
-                                  style: poppinsRegular.copyWith(
-                                    color: grey,
-                                    fontSize: xsmall,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  height: 12.0,
-                                ),
-                                Text(
-                                  'Iran\'s raging protests Fifth Iranian paramilitary me...',
-                                  maxLines: 2,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: poppinsSemibold.copyWith(
-                                    color: darkBlue,
-                                    fontSize: small,
-                                    height: 1.20,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  height: 12.0,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        SvgPicture.asset(
-                                          'assets/calendar_icon.svg',
-                                        ),
-                                        const SizedBox(
-                                          width: 8.0,
-                                        ),
-                                        Text(
-                                          '16th May',
-                                          style: poppinsRegular.copyWith(
-                                            color: grey,
-                                            fontSize: xsmall,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        SvgPicture.asset(
-                                          'assets/time_icon.svg',
-                                        ),
-                                        const SizedBox(
-                                          width: 8.0,
-                                        ),
-                                        Text(
-                                          '09 : 32 pm',
-                                          style: poppinsRegular.copyWith(
-                                            color: grey,
-                                            fontSize: xsmall,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                )
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    );
-                  },
-                ),
+              UserPostsListView(
+                  userPost: widget.selectedUser.postsRef,
+                  selectedUser: widget.selectedUser),
+              const SizedBox(
+                height: 6.0,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    'Popular From Elly',
+                    'Popular From ${widget.selectedUser.fname}',
                     style: poppinsBold.copyWith(
                       color: darkBlue,
                       fontSize: large,
@@ -367,38 +259,14 @@ class UserProfileScreenState extends State<UserProfileScreen> {
                 ],
               ),
               const SizedBox(
-                height: xsmall,
+                height: small,
               ),
-              SizedBox(
-                height: 143,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  physics: const BouncingScrollPhysics(
-                      decelerationRate: ScrollDecelerationRate.normal),
-                  itemCount: 5,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      height: 143,
-                      width: 248,
-                      margin: const EdgeInsets.only(
-                        right: small,
-                      ),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(
-                          borderRadius,
-                        ),
-                        child: Image.network(
-                          'https://images.unsplash.com/photo-1540202404-a2f29016b523?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3266&q=80',
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              )
+              PopularPostsListView(userPost: widget.selectedUser.postsRef)
             ]),
           ),
         ),
+        bottomNavigationBar: AppNavigationBar(
+            selectedIndex: selectedIndex, onItemTapped: onItemTapped),
       ),
     );
   }

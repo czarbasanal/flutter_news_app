@@ -4,7 +4,8 @@ class User {
   final String lname;
   final String work;
   final String bio;
-  final List<UserPost> posts;
+  final List<UserPost> postsRef;
+  final String posts;
   final String followers;
   final String following;
 
@@ -14,6 +15,7 @@ class User {
     required this.lname,
     required this.work,
     required this.bio,
+    required this.postsRef,
     required this.posts,
     required this.followers,
     required this.following,
@@ -141,7 +143,7 @@ List<List<UserPost>> userPosts = [
         caption: 'Michelin-Starred Chef Opens New Restaurant in New York City',
         details:
             'Lorem ipsum dolor sit amet, quo solet eirmod in, virtute partiendo aliquando id nec. At eum amet omittam repudiare. Tollit partem eam ei, ad volutpat quaerendum per, ea qui malorum pertinax. An vis fuisset quaestio tincidunt, in nibh luptatum iracundia pri. Eam diam regione instructior et, te pro prompta moderatius, et odio iudico petentium duo. \n\nSea ut nibh imperdiet, postea corrumpit voluptatum eum te. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-        datePosted: 'Sep 09 , 2023',
+        datePosted: 'Sep 09, 2023',
         timePosted: '06 : 30 pm',
         readDuration: '15 min read',
         category: 'Food')
@@ -217,17 +219,19 @@ var user = [
       fname: 'Kuya Josh',
       lname: 'Ojenroc',
       work: 'Nature Lover',
-      bio: '🌿 | Embracing the beauty of nature!',
-      posts: userPosts[0],
+      bio: '🌿 | Embracing the beauty of nature | Let\'s explore the outdoors!',
+      postsRef: userPosts[0],
+      posts: '2.11K',
       followers: '20.43K',
       following: '1.8K'),
   User(
       profile: 'assets/user-profile2.png',
-      fname: 'Tokemeki ',
+      fname: 'Tokemeki',
       lname: 'Mapags',
       work: 'Melomaniac',
-      bio: '🎵 | Grooving to the rhythm of life!',
-      posts: userPosts[1],
+      bio: '🎵 | Grooving to the rhythm of life | Sharing musical vibes',
+      postsRef: userPosts[1],
+      posts: '1.09K',
       followers: '69.69K',
       following: '5.02K'),
   User(
@@ -235,8 +239,10 @@ var user = [
       fname: 'Bibiluv',
       lname: '',
       work: 'TechBuddy',
-      bio: '🔌 | Tech-savvy and ready to assist!',
-      posts: userPosts[2],
+      bio:
+          '🔌 | Tech-savvy and ready to assist | Let\'s dive into the digital realm!',
+      postsRef: userPosts[2],
+      posts: '5.4K',
       followers: '10M',
       following: '1'),
   User(
@@ -244,8 +250,9 @@ var user = [
       fname: 'Bosseng',
       lname: 'Matski',
       work: 'Estitik Guy',
-      bio: '📷 | Capturing the world of beauty & aesthetics!',
-      posts: userPosts[3],
+      bio: '📷 | Capturing the world\'s beauty | Exploring aesthetics!',
+      postsRef: userPosts[3],
+      posts: '8.69K',
       followers: '100K',
       following: '47.6K'),
 ];

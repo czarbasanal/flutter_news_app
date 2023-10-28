@@ -3,12 +3,16 @@ import 'package:flutter_news_app/app_styles.dart';
 import 'package:flutter_news_app/details_carousel_slider.dart';
 import 'package:flutter_news_app/models/user.dart';
 import 'package:flutter_news_app/navigation_bar.dart';
+import 'package:flutter_news_app/slide_transition.dart';
+import 'package:flutter_news_app/user_profile_screen.dart';
 import 'package:flutter_svg/svg.dart';
 
 class DetailScreen extends StatefulWidget {
-  final User selectedNews;
+  User selectedNews;
+  int postRefIndex;
 
-  const DetailScreen({super.key, required this.selectedNews});
+  DetailScreen(
+      {super.key, required this.selectedNews, required this.postRefIndex});
 
   @override
   DetailScreenState createState() => DetailScreenState();
@@ -41,7 +45,8 @@ class DetailScreenState extends State<DetailScreen> {
               Stack(
                 children: [
                   DetailsCarouselSlider(
-                      featuredPostImages: widget.selectedNews.posts[0].image),
+                      featuredPostImages: widget
+                          .selectedNews.postsRef[widget.postRefIndex].image),
                   Align(
                     alignment: Alignment.topCenter,
                     child: Padding(
@@ -110,12 +115,15 @@ class DetailScreenState extends State<DetailScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              widget.selectedNews.posts[0].caption,
+                              widget.selectedNews.postsRef[widget.postRefIndex]
+                                  .caption,
                               style: poppinsBold.copyWith(
                                 color: darkBlue,
                                 fontSize: 28.0,
                                 height: 1.4,
                               ),
+                              maxLines: 3,
+                              overflow: TextOverflow.ellipsis,
                             ),
                             Container(
                               margin: const EdgeInsets.symmetric(
@@ -136,11 +144,19 @@ class DetailScreenState extends State<DetailScreen> {
                               ),
                               child: Row(
                                 children: [
-                                  CircleAvatar(
-                                    radius: 20,
-                                    backgroundColor: blue,
-                                    backgroundImage:
-                                        AssetImage(widget.selectedNews.profile),
+                                  GestureDetector(
+                                    child: CircleAvatar(
+                                      radius: 20,
+                                      backgroundColor: blue,
+                                      backgroundImage: AssetImage(
+                                          widget.selectedNews.profile),
+                                    ),
+                                    onTap: () {
+                                      Navigator.of(context).push(SlidePageRoute(
+                                        builder: (context) => UserProfileScreen(
+                                            selectedUser: widget.selectedNews),
+                                      ));
+                                    },
                                   ),
                                   const SizedBox(
                                     width: 16.0,
@@ -158,7 +174,7 @@ class DetailScreenState extends State<DetailScreen> {
                                         ),
                                       ),
                                       Text(
-                                        '${widget.selectedNews.posts[0].datePosted}  •  ${widget.selectedNews.posts[0].readDuration}',
+                                        '${widget.selectedNews.postsRef[widget.postRefIndex].datePosted}  •  ${widget.selectedNews.postsRef[widget.postRefIndex].readDuration}',
                                         style: poppinsRegular.copyWith(
                                           color: grey,
                                           fontSize: xsmall,
@@ -170,7 +186,8 @@ class DetailScreenState extends State<DetailScreen> {
                               ),
                             ),
                             Text(
-                              widget.selectedNews.posts[0].details,
+                              widget.selectedNews.postsRef[widget.postRefIndex]
+                                  .details,
                               style: poppinsMedium.copyWith(
                                 fontSize: isExpanded ? null : small,
                                 color: darkBlue,
