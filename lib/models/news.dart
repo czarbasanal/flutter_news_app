@@ -1,3 +1,18 @@
+class FeaturedNews {
+  final String newsImg;
+  final String newsHeadline;
+  final String authorImg;
+  final String authorName;
+  final String datePosted;
+
+  FeaturedNews(
+      {required this.newsImg,
+      required this.newsHeadline,
+      required this.authorImg,
+      required this.authorName,
+      required this.datePosted});
+}
+
 class ShortForYou {
   final String thumbnailUrl;
   final String heading;

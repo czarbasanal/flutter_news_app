@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news_app/details_screen.dart';
+import 'package:flutter_news_app/models/news.dart';
 import 'package:flutter_news_app/models/user.dart';
 import 'package:flutter_news_app/slide_transition.dart';
 import 'package:flutter_news_app/user_profile_screen.dart';
@@ -21,8 +22,13 @@ class FeaturedListView extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           User featuredUser = user[index];
-          UserPost featuredPost = featuredUser.postsRef[0];
-          String featuredPostImg = featuredPost.image[0];
+          var featuredNews = FeaturedNews(
+            authorImg: featuredUser.profile,
+            authorName: '${featuredUser.fname} ${featuredUser.lname}',
+            newsImg: featuredUser.postsRef[0].image[0],
+            newsHeadline: featuredUser.postsRef[0].caption,
+            datePosted: featuredUser.postsRef[0].datePosted,
+          );
 
           return Container(
             padding: const EdgeInsets.all(12),
@@ -52,7 +58,7 @@ class FeaturedListView extends StatelessWidget {
                       borderRadius: BorderRadius.circular(borderRadius),
                       image: DecorationImage(
                           fit: BoxFit.cover,
-                          image: AssetImage(featuredPostImg)),
+                          image: AssetImage(featuredNews.newsImg)),
                     ),
                   ),
                   onTap: () {
@@ -69,7 +75,7 @@ class FeaturedListView extends StatelessWidget {
                 ),
                 Flexible(
                   child: Text(
-                    featuredPost.caption,
+                    featuredNews.newsHeadline,
                     style: poppinsBold.copyWith(fontSize: large, height: 1.20),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
@@ -88,7 +94,7 @@ class FeaturedListView extends StatelessWidget {
                               radius: 19,
                               backgroundColor: lightBlue,
                               backgroundImage:
-                                  AssetImage(featuredUser.profile)),
+                                  AssetImage(featuredNews.authorImg)),
                           onTap: () {
                             Navigator.of(context).push(SlidePageRoute(
                               builder: (context) =>
@@ -104,13 +110,13 @@ class FeaturedListView extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              '${featuredUser.fname} ${featuredUser.lname}',
+                              featuredNews.authorName,
                               style: poppinsSemibold.copyWith(
                                 fontSize: small,
                               ),
                             ),
                             Text(
-                              featuredPost.datePosted,
+                              featuredNews.datePosted,
                               style: poppinsRegular.copyWith(
                                 color: grey,
                                 fontSize: xsmall,
