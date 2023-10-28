@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news_app/navigation_bar.dart';
-import 'package:flutter_news_app/user_profile_screen.dart';
 import 'app_styles.dart';
 import 'home_screen.dart';
 
